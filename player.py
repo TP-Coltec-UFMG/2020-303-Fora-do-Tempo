@@ -19,7 +19,7 @@ class Player(ElementoJogo):
         self.coluna_intencao = self.x
         self.linha_intencao = self.y
 
-    def pintar(self):
+    def pintar(self, camera):
         if self.alternar == 1:
             self.alternar = 0
         else:
@@ -29,12 +29,12 @@ class Player(ElementoJogo):
         else:
             self.image = player_images["stop"][self.last]
 
+        self.rect = pygame.Rect(self.x * config.scale, self.y * config.scale - (camera[1] * config.scale), config.scale, config.scale)
         self.screen.blit(self.image, self.rect)
 
     def calcular_regras(self):
         self.coluna_intencao = self.x + self.vel_x
         self.linha_intencao = self.y + self.vel_y
-        self.rect = pygame.Rect(self.x * config.scale, self.y * config.scale, config.scale, config.scale)
 
         if self.x < self.coluna_intencao:
             self.last = "right"

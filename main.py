@@ -29,7 +29,7 @@ if __name__ == "__main__":
         # Pintar a Tela
         screen.fill(config.black)
         game.pintar()
-        player.pintar()
+        player.pintar(game.camera)
         pygame.display.update()
 
         # Captura de eventos

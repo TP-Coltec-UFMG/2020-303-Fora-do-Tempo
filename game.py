@@ -1,3 +1,5 @@
+import math
+
 import pygame
 import config
 from elemento_jogo import ElementoJogo
@@ -14,6 +16,7 @@ class Game(ElementoJogo):
         self.objects = []
         self.map = []
         self.set_up()
+        self.camera = [0, 0]
 
     def set_up(self):
         # self.objects.append(self.player)
@@ -25,6 +28,12 @@ class Game(ElementoJogo):
         col = self.player.coluna_intencao
         lin = self.player.linha_intencao
 
+        if col < 0 or col > (len(self.map[0]) - 1):
+            return
+
+        if lin < 0 or lin > (len(self.map) - 1):
+            return
+
         if self.map[lin][col][0:1] != "W" and self.map[lin][col] != "OBJ":
             self.player.aceitar_movimento()
 
@@ -35,7 +44,7 @@ class Game(ElementoJogo):
         self.render_map()
 
         for p in self.objects:
-            p.pintar(self.screen)
+            p.pintar(self.screen, self.camera)
 
     def change_map(self, num):
         self.map = []
@@ -54,7 +63,6 @@ class Game(ElementoJogo):
             elif last == "left" and p.x + 1 == col and p.y[0] == lin:
                 self.change_map(2)
 
-
     def processar_eventos(self, eventos):
         for event in eventos:
             if event.type == pygame.QUIT:
@@ -71,6 +79,9 @@ class Game(ElementoJogo):
             self.map.append(tiles)
 
     def render_map(self):
+
+        self.determine_camera()
+
         y_pos = 0
         for line in self.map:
             x_pos = 0
@@ -80,10 +91,22 @@ class Game(ElementoJogo):
                 else:
                     image = map_tile_images["G1"]
 
-                rect = pygame.Rect(x_pos * config.scale, y_pos * config.scale, config.scale, config.scale)
+                rect = pygame.Rect(x_pos * config.scale, y_pos * config.scale - (self.camera[1] * config.scale),
+                                   config.scale, config.scale)
                 self.screen.blit(image, rect)
                 x_pos += 1
             y_pos += 1
+
+    def determine_camera(self):
+        max_y_position = len(self.map) - config.screen_height / config.scale
+        y_position = self.player.y - math.ceil(round(config.screen_height / config.scale / 2))
+
+        if max_y_position >= y_position >= 0:
+            self.camera[1] = y_position
+        elif y_position < 0:
+            self.camera[1] = 0
+        else:
+            self.camera[1] = max_y_position
 
 
 map_tile_images = {

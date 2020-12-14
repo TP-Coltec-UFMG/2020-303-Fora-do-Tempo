@@ -9,12 +9,14 @@ class Tree:
         self.y = (y_base, y_base - 1)
         self.top = tree_images[color]["top"]
         self.base = tree_images[color]["base"]
-        self.rect_base = pygame.Rect(self.x * config.scale, self.y[0] * config.scale, config.scale, config.scale)
-        self.rect_top = pygame.Rect(self.x * config.scale, self.y[1] * config.scale, config.scale, config.scale)
 
-    def pintar(self, tela):
-        tela.blit(self.top, self.rect_top)
-        tela.blit(self.base, self.rect_base)
+    def pintar(self, tela, camera):
+        rect_base = pygame.Rect(self.x * config.scale, self.y[0] * config.scale - (camera[1] * config.scale),
+                                config.scale, config.scale)
+        rect_top = pygame.Rect(self.x * config.scale, self.y[1] * config.scale - (camera[1] * config.scale),
+                               config.scale, config.scale)
+        tela.blit(self.top, rect_top)
+        tela.blit(self.base, rect_base)
 
 
 tree_images = {
