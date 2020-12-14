@@ -29,7 +29,8 @@ class Player(ElementoJogo):
         else:
             self.image = player_images["stop"][self.last]
 
-        self.rect = pygame.Rect(self.x * config.scale, self.y * config.scale - (camera[1] * config.scale), config.scale, config.scale)
+        self.rect = pygame.Rect(self.x * config.scale, self.y * config.scale - (camera[1] * config.scale), config.scale,
+                                config.scale)
         self.screen.blit(self.image, self.rect)
 
     def calcular_regras(self):
@@ -52,12 +53,17 @@ class Player(ElementoJogo):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP or event.key == pygame.K_w:  # up
                     self.vel_y = -1
+                    self.vel_x = 0
                 elif event.key == pygame.K_DOWN or event.key == pygame.K_s:  # down
                     self.vel_y = 1
+                    self.vel_x = 0
                 elif event.key == pygame.K_LEFT or event.key == pygame.K_a:  # left
                     self.vel_x = -1
+                    self.vel_y = 0
                 elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:  # right
                     self.vel_x = 1
+                    self.vel_y = 0
+
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP or event.key == pygame.K_w:  # up
                     self.vel_y = 0
