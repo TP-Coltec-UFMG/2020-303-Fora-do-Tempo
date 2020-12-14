@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
         # Pintar a Tela
         screen.fill(config.black)
-        game.pintar()
+        game.pintar(game.camera)
         player.pintar(game.camera)
         pygame.display.update()
 

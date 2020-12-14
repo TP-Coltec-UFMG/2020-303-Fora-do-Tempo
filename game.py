@@ -37,7 +37,7 @@ class Game(ElementoJogo):
         if self.map[lin][col][0:1] != "W" and self.map[lin][col] != "OBJ":
             self.player.aceitar_movimento()
 
-    def pintar(self):
+    def pintar(self, camera):
         # self.screen.fill(config.black)
         # self.processar_eventos()
 

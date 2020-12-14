@@ -1,8 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
+
 class ElementoJogo(metaclass=ABCMeta):
     @abstractmethod
-    def pintar(self):
+    def pintar(self, camera):
         pass
 
     @abstractmethod
