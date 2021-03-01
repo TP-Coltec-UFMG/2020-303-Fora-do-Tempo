@@ -9,4 +9,9 @@ Link do código: https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/tree/developer
 Link do drive com slides e relatório: https://drive.google.com/drive/folders/1fiyWFig46MUoMmuQQWstsRyROI4Q8HCE?usp=sharing
 
 ![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/1.png?raw=true)
-
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/2.png?raw=true)
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/3.png?raw=true)
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/9.png?raw=true)
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/10.png?raw=true)
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/11.png?raw=true)
+![alt text](https://github.com/TP-Coltec-UFMG/Fora-do-Tempo/blob/developer/16.png?raw=true)
